@@ -1,4 +1,3 @@
-
 from bauhaus import Encoding, proposition, constraint
 from bauhaus.utils import count_solutions, likelihood
 
@@ -14,7 +13,6 @@ class BasicPropositions:
 
     def __repr__(self):
         return f"A.{self.data}"
-
 
 # Different classes for propositions are useful because this allows for more dynamic constraint creation
 # for propositions within that class. For example, you can enforce that "at least one" of the propositions
@@ -32,15 +30,26 @@ class FancyPropositions:
         return f"A.{self.data}"
 
 # Call your variables whatever you want
-a = BasicPropositions("a")
-b = BasicPropositions("b")   
-c = BasicPropositions("c")
-d = BasicPropositions("d")
-e = BasicPropositions("e")
+soccer = BasicPropositions("soccer")
+soocer_int = BasicPropositions("soocer_int")   
+music = BasicPropositions("music")
+guitar = BasicPropositions("guitar")
+student = BasicPropositions("student")
+queens_student = BasicPropositions("queens_student")
+school_club = BasicPropositions("school_club")
+specialization = BasicPropositions("specialization")
+in_person = BasicPropositions("in_person")
+first_year = BasicPropositions("first_year")
+on_res = BasicPropositions("on_res")
+
 # At least one of these will be true
-x = FancyPropositions("x")
-y = FancyPropositions("y")
-z = FancyPropositions("z")
+nick = FancyPropositions("nick")
+amanda = FancyPropositions("amanda")
+vanshita = FancyPropositions("vanshita")
+adam = FancyPropositions("adam")
+jimmy = FancyPropositions("jimmy")
+moira = FancyPropositions("moira")
+gary = FancyPropositions("gary")
 
 
 # Build an example full theory for your setting and return it.
