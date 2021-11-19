@@ -6,7 +6,7 @@ E = Encoding()
 
 # To create propositions, create classes for them first, annotated with "@proposition" and the Encoding
 @proposition(E)
-class BasicPropositions:
+class Properties:
 
     def __init__(self, data):
         self.data = data
@@ -21,7 +21,7 @@ class BasicPropositions:
 # For a complete module reference, see https://bauhaus.readthedocs.io/en/latest/bauhaus.html
 @constraint.at_least_one(E)
 @proposition(E)
-class FancyPropositions:
+class Users:
 
     def __init__(self, data):
         self.data = data
@@ -30,26 +30,26 @@ class FancyPropositions:
         return f"A.{self.data}"
 
 # Call your variables whatever you want
-soccer = BasicPropositions("soccer")
-soocer_int = BasicPropositions("soocer_int")   
-music = BasicPropositions("music")
-guitar = BasicPropositions("guitar")
-student = BasicPropositions("student")
-queens_student = BasicPropositions("queens_student")
-school_club = BasicPropositions("school_club")
-specialization = BasicPropositions("specialization")
-in_person = BasicPropositions("in_person")
-first_year = BasicPropositions("first_year")
-on_res = BasicPropositions("on_res")
+soccer = Properties("soccer")
+soocer_int = Properties("soocer_int")   
+music = Properties("music")
+guitar = Properties("guitar")
+student = Properties("student")
+queens_student = Properties("queens_student")
+school_club = Properties("school_club")
+specialization = Properties("specialization")
+in_person = Properties("in_person")
+first_year = Properties("first_year")
+on_res = Properties("on_res")
 
 # At least one of these will be true
-nick = FancyPropositions("nick")
-amanda = FancyPropositions("amanda")
-vanshita = FancyPropositions("vanshita")
-adam = FancyPropositions("adam")
-jimmy = FancyPropositions("jimmy")
-moira = FancyPropositions("moira")
-gary = FancyPropositions("gary")
+nick = Users("nick")
+amanda = Users("amanda")
+vanshita = Users("vanshita")
+adam = Users("adam")
+jimmy = Users("jimmy")
+moira = Users("moira")
+gary = Users("gary")
 
 
 # Build an example full theory for your setting and return it.
