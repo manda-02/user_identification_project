@@ -1,0 +1,10 @@
+Notes:
+
+-IMPLEMENTATION IDEAS:
+	-function that reads a message and creates a list with propositions based on keywords
+	OR
+	-terminal-based interface (like checklist)
+		-if property is checked, its true, otherwise, its false
+
+-how can our jape proofs conlcude a user(s)
+-we can encode model with our constraints using the propositions
