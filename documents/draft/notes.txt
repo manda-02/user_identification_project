@@ -8,3 +8,4 @@ Notes:
 
 -how can our jape proofs conlcude a user(s)
 -we can encode model with our constraints using the propositions
+
