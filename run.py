@@ -30,17 +30,17 @@ class Users:
         return f"A.{self.data}"
 
 # Call your variables whatever you want
-soccer = Properties("soccer")
-soocer_int = Properties("soocer_int")   
-music = Properties("music")
-guitar = Properties("guitar")
-student = Properties("student")
-queens_student = Properties("queens_student")
-school_club = Properties("school_club")
-specialization = Properties("specialization")
-in_person = Properties("in_person")
-first_year = Properties("first_year")
-on_res = Properties("on_res")
+s = Properties("soccer")
+t = Properties("soocer_int")   
+b = Properties("music")
+g = Properties("guitar")
+d = Properties("student")
+q = Properties("queens_student")
+c = Properties("school_club")
+f = Properties("specialization")
+p = Properties("in_person")
+a = Properties("first_year")
+r = Properties("on_res")
 
 # At least one of these will be true
 nick = Users("nick")
@@ -51,23 +51,44 @@ jimmy = Users("jimmy")
 moira = Users("moira")
 gary = Users("gary")
 
-
 # Build an example full theory for your setting and return it.
 #
 #  There should be at least 10 variables, and a sufficiently large formula to describe it (>50 operators).
 #  This restriction is fairly minimal, and if there is any concern, reach out to the teaching staff to clarify
 #  what the expectations are.
 def example_theory():
-    # Add custom constraints by creating formulas with the variables you created. 
-    E.add_constraint((a | b) & ~x)
-    # Implication
-    E.add_constraint(y >> z)
-    # Negate a formula
-    E.add_constraint((x & y).negate())
-    # You can also add more customized "fancy" constraints. Use case: you don't want to enforce "exactly one"
-    # for every instance of BasicPropositions, but you want to enforce it for a, b, and c.:
-    constraint.add_exactly_one(E, a, b, c)
-
+    
+    #USER CONSTRAINTS
+    E.add_contraint(nick >> (s & d & q & f & p))
+    E.add_contraint(amanda >> (s & t & d & q & c & f & p))
+    E.add_contraint(vanshita >> (b & d & q & c & f & p))
+    E.add_contraint(adam >> (s & t & d & q & f & p))
+    E.add_contraint(jimmy >> (s & g & b &d & c & a & r))
+    E.add_contraint(moira >> (s & t & b & p & d & c))
+    E.add_contraint(gary >> (g & b & s))
+    
+    #PROPERTY CONTRAINTS
+    E.add_constraint((t | q | c | f | p | a | r)>>d)
+    E.add_constraint((q & a) >> r)
+    E.add_constraint(t >> (s & d))
+    E.add_constraint(f >> (a).negate())
+    E.add_constraint((b).negate() >> (g).negate())
+    E.add_constraint(g >> b)
+    E.add_constraint(c >> d)
+    
+    #PROPERTY-TO-USER CONTRAINTS
+    E.add_constraint(s >> (nick | amanda | adam | jimmy | moira))
+    E.add_constraint(t >> (amanda | adam | jimmy | moira))
+    E.add_constraint(b >> (vanshita |  jimmy | moira | gary))
+    E.add_constraint(g >> (jimmy | gary))
+    E.add_constraint(d >> (nick | amanda | vanshita | adam | jimmy | moira))
+    E.add_constraint(q >> (nick | amanda | vanshita | adam))
+    E.add_constraint(c >> (amanda | vanshita | jimmy | moira))
+    E.add_constraint(f >> (nick | amanda | vanshita | adam))
+    E.add_constraint(p >> (nick | amanda | vanshita | adam | moira))
+    E.add_constraint(a >> (jimmy))
+    E.add_constraint(r >> (jimmy))
+    
     return E
 
 
